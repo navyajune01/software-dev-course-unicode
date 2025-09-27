@@ -85,21 +85,36 @@ Assign the result to a variable named swappedString.
 
 //Starter Code
 // Task 1
-let inputString1 = "Code";
-let firstCodePoint; // Your code here
-let thirdCodePoint; // Your code here
+const str = "Code";
+
+// Extract Unicode code points using charCodeAt
+const firstCodePoint = str.charCodeAt(0);  // 'C'
+const thirdCodePoint = str.charCodeAt(2);  // 'd'
+
+console.log(firstCodePoint);  // 67
+console.log(thirdCodePoint);  // 100
+
 
 // Task 2
-let wordFromCodePoints; // Your code here
+// Use String.fromCharCode to build the word "Hell"
+const wordFromCodePoints = String.fromCharCode(72, 101, 108, 108);
+
+console.log(wordFromCodePoints);  // "Hell"
+
 
 // Task 3
-let inputString2 = "Launch";
-let swappedString; // Your code here
+const originalString = "Launch";
 
-// Log all results
-console.log({
-  firstCodePoint,
-  thirdCodePoint,
-  wordFromCodePoints,
-  swappedString,
-});
+// Get Unicode code points of first and last characters
+const firstCharCode = originalString.charCodeAt(0);  // 'L'
+const lastCharCode = originalString.charCodeAt(originalString.length - 1);  // 'h'
+
+// Create swapped characters using fromCharCode
+const newFirstChar = String.fromCharCode(lastCharCode);  // 'h'
+const newLastChar = String.fromCharCode(firstCharCode);  // 'L'
+
+// Create new string with swapped characters
+const middleSubstring = originalString.slice(1, -1);  // "aunc"
+const swappedString = newFirstChar + middleSubstring + newLastChar;
+
+console.log(swappedString);  // "hauncL"
